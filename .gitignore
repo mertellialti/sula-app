@@ -1,0 +1,55 @@
+# Dependency directories
+node_modules/
+plugins/
+www/
+
+# Compiled files
+/dist/
+/platforms/
+/plugins/
+www/build/
+*.apk
+*.ipa
+
+# Logs and debugging files
+npm-debug.log
+yarn-error.log
+*.log
+logs/
+*.log.*
+*.log-*
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.sln.docstates
+
+# Mac-specific files
+.DS_Store
+
+# Windows-specific files
+Thumbs.db
+
+# IDE-specific files and directories
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Cache and temporary files
+.angular/cache/
+.cordova/
+.bak/
+npm-debug.log
+yarn-error.log
+
+# Assets
+# src/assets/imgs/
+src/assets/video/
+# End of file
