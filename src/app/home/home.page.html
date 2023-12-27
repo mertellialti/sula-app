@@ -63,7 +63,7 @@
   <ion-content class="ion-padding">
     <ion-grid fixed>
       <ion-row>
-        <ion-col size="12" size-md="12" size-lg="6">
+        <!-- <ion-col size="12" size-md="12" size-lg="12">
           <div class="card-container">
             <div class="card-background">
               <img src="../../assets/imgs/10.jpeg" class="image-content" style="width: 100%;" />
@@ -72,20 +72,29 @@
               <h1 class="image-content">SULA</h1>
             </div>
           </div>
-        </ion-col>
+        </ion-col> -->
         
         <ion-col size="12" size-md="12" size-lg="12">
           <div class="card-container">
-            <div class="card-background">
+            <!-- <div class="card-background">
               <img src="../../assets/imgs/2.jpeg" class="image-content" />
-            </div>
+            </div> -->
+            <swiper-container [modules]="swiperModules" [options]="swiperOptions" [autoplay]="true">              
+              <swiper-slide *ngFor="let image of slidingImgs">
+                <div class="product-image-container">
+                  <img [src]="image" class="product-image" />
+                </div>
+              </swiper-slide>
+            </swiper-container>
+            
             <div class="card-content">
-              <h2 class="image-content">All New 2024</h2>
-              <ion-button expand="full" fill="solid" color="medium"
+              <h2 class="product-image">All New 2024</h2>
+              <ion-button expand="full" fill="outline" color="medium"
                 >Check New Session
               </ion-button>
             </div>
           </div>
+          <swiper-pagination></swiper-pagination>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -142,7 +151,7 @@
       <ion-grid>
         <ion-row>
           <ion-col size="6" size-md="6" size-lg="4" style="text-align: center">
-            <ion-item color="translucent" *ngFor="let item of footerColumn1">              
+            <ion-item color="translucent" *ngFor="let item of footerColumn1" style="text-wrap: balance;">              
               <ion-label color="medium">{{item.name}}</ion-label>
             </ion-item>
           </ion-col>    

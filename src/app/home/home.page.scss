@@ -39,13 +39,6 @@ ion-item {
   /* Applies a black-and-white filter */
 }
 
-.card-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  /* Adjust the border radius as needed */
-}
-
 .card-background {
   position: relative;
   overflow: hidden;
@@ -61,19 +54,26 @@ ion-item {
   object-fit: fill;
 }
 
-.card-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 16px;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Semi-transparent background for readability */
-  color: #fff;
-  /* Text color */
-  border-radius: 0 0 10px 10px;
-  /* Match the bottom border radius of the card container */
-}
+// .card-container {
+//   position: relative;
+//   overflow: hidden;
+//   border-radius: 10px;
+//   /* Adjust the border radius as needed */
+// }
+
+// .card-content {
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   padding: 16px;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   /* Semi-transparent background for readability */
+//   color: #fff;
+//   /* Text color */
+//   border-radius: 0 0 10px 10px;
+//   /* Match the bottom border radius of the card container */
+// }
 
 .card-title {
   font-size: 24px;
@@ -81,6 +81,30 @@ ion-item {
   margin-bottom: 8px;
 }
 
+// NEW 
+.card-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  /* Adjust the border radius as needed */
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 16px;
+  color: #fff;
+  border-radius: 0 0 10px 10px;
+  /* Match the bottom border radius of the card container */
+  text-align: center;
+  /* Center text within the card */
+  z-index: 1;
+  /* Ensure the content is above the images */
+}
+// -0-
 
 .zoomable-video {
   width: 100%;
@@ -111,4 +135,18 @@ ion-item {
   width: 100%;
   height: auto;
   transition: transform 0.3s ease-in-out;
+}
+
+.product-image-container {
+  border-radius: 7px;
+  border: 1px solid #000; /* Adjust border style and color as needed */
+  overflow: hidden; /* Hide any image overflow */
+  width: 100%; /* Ensure the container fills the available width */
+  max-height: 100%; /* Set a fixed maximum height for the container, adjust as needed */
+}
+
+.product-image {
+  width: 100%; /* Ensure the image fills the container horizontally */
+  height: 100%; /* Ensure the image fills the container vertically */
+  object-fit: cover; /* Maintain aspect ratio and crop if necessary */
 }
