@@ -1,4 +1,4 @@
-# Clothing Online Shop with Ionic & Angular
+# Online Shop with Ionic & Angular
 
 ## **About The Project**
 
