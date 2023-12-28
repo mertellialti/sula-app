@@ -82,24 +82,23 @@ If you encounter any issues during the installation or setup process, feel free 
 
 ## Screenshots and Videos
 
-Insert screenshots or video demonstrations of the app here.
+![Screenshot](ss0.PNG)
 
-Example:
+![Screenshot](ss1.PNG)
 
-A screenshot of the home screen
+![Screenshot](ss2.PNG)
+
+![Screenshot](ss3.PNG)
 
 ## Contributing
 
-If you’re open to contributions, provide guidelines on how they can contribute, including instructions on submitting pull requests, coding standards, and other preferences.
+Will be open contribution soon. If you want to collabrate, please **contact** me. 
 
 ### License
 
-Specify the type of license under which your project is released.
+--
 
 ### Contact
 
-Your contact information or links to your social media/GitHub profile for users to reach out with questions or feedback.
-
-### Acknowledgments
-
-Credits or acknowledgments for any third-party resources used or for contributors to the project.
+@Insgtagram mertellialti
+@Linkedin Mert Ellialtı
