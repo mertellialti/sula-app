@@ -10,7 +10,6 @@ www/
 www/build/
 *.apk
 *.ipa
-ios
 
 # Logs and debugging files
 npm-debug.log
