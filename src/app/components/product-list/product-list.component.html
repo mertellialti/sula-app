@@ -1,4 +1,4 @@
-<ion-menu contentId="main-content">
+<ion-menu contentId="menu-content">
   <ion-header>
     <ion-toolbar>
       <ion-title>SULA</ion-title>
@@ -47,7 +47,7 @@
   </ion-footer>
 </ion-menu>
 
-<div class="ion-page" id="main-content">
+<div class="ion-page" id="menu-content">
   <ion-header style="align-items: center; justify-content: center">
     <ion-toolbar color="translucent">
       <ion-grid fixed>
@@ -57,11 +57,17 @@
           </ion-col>
           <ion-col size="6"><h4>SULA</h4></ion-col>
           <ion-col size="3" style="text-align: center">
+            <ion-button
+            routerLink="../../../cart"
+            routerDirection="forward"
+            fill="clear"
+          >
             <ion-icon
               name="cart-outline"
               size="large"
               style="float: right"
             ></ion-icon>
+          </ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>

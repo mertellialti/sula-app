@@ -11,10 +11,14 @@ const routes: Routes = [
   { path: 'products/:gender/:type', component: ProductListComponent },
   { path: 'products/:gender/:type/:productId', component: ProductDetailsComponent },  
   {
+    path: 'cart',
+    loadChildren: () => import('./pages/public/cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },
+  }, 
 ];
 
 @NgModule({

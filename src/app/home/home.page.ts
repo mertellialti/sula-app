@@ -47,4 +47,8 @@ export class HomePage {
     
   }
 
+  routeCart(){
+    console.log('route cart')
+  }
+
 }
