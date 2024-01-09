@@ -1,0 +1,207 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>SULA</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-accordion-group>
+      <ion-accordion value="man">
+        <ion-item slot="header" color="translucent" lines="none">
+          <ion-label>Men's</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-item
+            *ngFor="let item of manMenu"
+            routerLink="../products/{{item.route}}"
+          >
+            <ion-label>{{item.name}}</ion-label>
+          </ion-item>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="woman">
+        <ion-item slot="header" color="translucent" lines="none">
+          <ion-label>Women's</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-item
+            *ngFor="let item of womanMenu"
+            routerLink="../products/{{item.route}}"
+          >
+            <ion-label>{{item.name}}</ion-label>
+          </ion-item>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-item>
+        <ion-label>Login</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sign Up</ion-label>
+      </ion-item>
+      <div style="height: 50px"></div>
+    </ion-toolbar>
+  </ion-footer>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header style="align-items: center; justify-content: center">
+    <ion-toolbar color="translucent">
+      <!-- <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons> -->
+      <ion-grid fixed>
+        <ion-row style="align-items: center">
+          <ion-col size="3" style="text-align: center">
+            <ion-menu-button style="float: left"></ion-menu-button>
+          </ion-col>
+          <ion-col size="6"><h4>SULA</h4></ion-col>
+          <ion-col size="3" style="text-align: center">
+            <ion-button
+              routerLink="../cart"
+              routerDirection="forward"
+              fill="clear"
+            >
+              <ion-icon
+                name="cart-outline"
+                size="large"
+                style="float: right"
+              ></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-grid fixed>
+      <ion-row>
+        <!-- <ion-col size="12" size-md="12" size-lg="12">
+          <div class="card-container">
+            <div class="card-background">
+              <img src="../../assets/imgs/10.jpeg" class="image-content" style="width: 100%;" />
+            </div>
+            <div class="card-content">
+              <h1 class="image-content">SULA</h1>
+            </div>
+          </div>
+        </ion-col> -->
+
+        <ion-col size="12" size-md="12" size-lg="12">
+          <div class="card-container">
+            <!-- <div class="card-background">
+              <img src="../../assets/imgs/2.jpeg" class="image-content" />
+            </div> -->
+            <swiper-container
+              [modules]="swiperModules"
+              [options]="swiperOptions"
+              [autoplay]="true"
+            >
+              <swiper-slide *ngFor="let image of slidingImgs">
+                <div class="product-image-container">
+                  <img [src]="image" class="image-content" />
+                </div>
+              </swiper-slide>
+            </swiper-container>
+
+            <div class="card-content">
+              <h2 class="product-image">All New 2024</h2>
+              <ion-button expand="full" fill="outline" color="medium"
+                >Check New Session
+              </ion-button>
+            </div>
+          </div>
+          <swiper-pagination></swiper-pagination>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-md="6" size-lg="6">
+          <div class="card-container">
+            <div class="card-background">
+              <img src="../../assets/imgs/3.jpeg" class="image-content" />
+            </div>
+            <div class="card-content">
+              <h2 class="image-content">Aesthetic</h2>
+              <p>
+                Donec imperdiet velit at tellus venenatis scelerisque. Donec
+                eget justo feugiat, imperdiet leo quis, egestas nibh. Donec
+                ullamcorper velit quis justo viverra pulvinar.
+              </p>
+              <ion-button expand="full" fill="clear" color="dark"
+                >Check</ion-button
+              >
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="12" sizeMd="6" sizeLg="6">
+          <div class="card-container">
+            <div class="card-background">
+              <img src="../../assets/imgs/4.jpeg" class="image-content" />
+            </div>
+            <div class="card-content">
+              <h2 class="image-content">Aesthetic</h2>
+              <p>
+                Suspendisse non sodales orci. Fusce at ex nulla. Interdum et
+                malesuada fames ac ante ipsum primis in faucibus. Maecenas
+                rhoncus convallis condimentum. Nam a dapibus sapien. Cras nec
+                iaculis libero. Morbi tempor tortor vel justo rutrum, at
+                eleifend nunc lacinia.
+              </p>
+              <ion-button expand="full" fill="clear" color="dark"
+                >Check</ion-button
+              >
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" sizeMd="12" sizeLg="4">
+          <iframe
+            style="border-radius: 12px"
+            src="https://open.spotify.com/embed/playlist/37i9dQZF1DWVY4eLfA3XFQ?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </ion-col>
+        <ion-col size="12" sizeMd="12" sizeLg="4"></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-footer color="translucent">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-md="6" size-lg="4" style="text-align: center">
+            <ion-item
+              color="translucent"
+              *ngFor="let item of footerColumn1"
+              style="text-wrap: balance"
+            >
+              <ion-label color="medium">{{item.name}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item color="translucent" *ngFor="let item of footerColumn2">
+              <ion-icon
+                *ngIf="item.icon"
+                slot="start"
+                [name]="item.icon"
+              ></ion-icon>
+              <ion-label color="medium">{{item.name}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-title color="light">SULA</ion-title>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-footer>
+  </ion-content>
+</div>

@@ -1,28 +1,24 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./pages/public/home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  {
-    path: 'collection/:gender/:type',
-    loadChildren: () => import('./pages/public/product-list/product-list.module').then(m => m.ProductListPageModule)
-  },
-  {
-    path: 'product/:productId',
-    loadChildren: () => import('./pages/public/product-details/product-details.module').then(m => m.ProductDetailsPageModule)
-  },
+  { path: 'products/:gender/:type', component: ProductListComponent },
+  { path: 'products/:gender/:type/:productId', component: ProductDetailsComponent },  
   {
     path: 'cart',
-    loadChildren: () => import('./pages/public/cart/cart.module').then(m => m.CartPageModule)
+    loadChildren: () => import('./pages/public/cart/cart.module').then( m => m.CartPageModule)
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  }
+  }, 
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-button
-      (click)="back()"
+      routerLink="../"
       routerDirection="back"
       fill="clear"
       shape="round"
@@ -20,44 +20,23 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid>
-    <ion-row>
-      <!-- Adjusting the column size for larger screens -->
-      <ion-col>
-        <ion-card *ngFor="let item of cartSrv.cart">
-          <ion-item lines="none">
-            <ion-thumbnail slot="start">
-              <!-- <img [src]="cartSrv.getImg(item.id)"/> -->
-            </ion-thumbnail>
-            <ion-label>
-              <h2>{{ item.name }}</h2>
-              <!-- <p>Amount: {{ item.amount }}</p> -->
-              <!-- <p>Price: {{ item.price * item.amount }} $</p> -->
-            </ion-label>
-            <ion-buttons slot="end">
-              <ion-button
-                fill="clear"
-                (click)="cartSrv.updateItem(item.id, -1)"
-              >
-                <ion-icon slot="icon-only" name="remove"></ion-icon>
-              </ion-button>
-              <ion-button fill="clear" (click)="cartSrv.updateItem(item.id, 1)">
-                <ion-icon slot="icon-only" name="add"></ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-    <ion-item>
-      <ion-label> Total {{cartSrv.cartTotal}}$</ion-label>
-    </ion-item>
-    <ion-row>
-      <ion-col size="12">
-        <ion-button expand="block" fill="clear" shape="round">
-          Proceed
+  <ion-card *ngFor="let item of cart">
+    <ion-card-header>      
+      <ion-card-title>{{ item.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-chip>
+        <ion-button shape="round" fill="clear" color="dark" (click)="updateItem(item.values().id, -1)">
+          <ion-icon
+            name="remove"            
+          ></ion-icon>
         </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+        <ion-label> ({{ item.amount }})</ion-label>
+        <ion-button shape="round" fill="clear" color="dark" (click)="updateItem(item.id, 1)">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </ion-chip>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>
