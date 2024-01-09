@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import { IonicModule } from '@ionic/angular';
 import { IonicSlides } from '@ionic/angular';
 import { CartService } from 'src/app/services/cart.service';
+import { ProductService } from 'src/app/services/product.service';
+import { SwiperOptions } from 'swiper/types/swiper-options';
 
 @Component({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -18,87 +21,47 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductComponent implements OnInit {
 
-  @Input() product: any; // Input for product data
+  @Input() product: any = null; // Input for product data
   swiperModules = [IonicSlides];
-  protected cartVal: number = 0
+  protected cartVal: number;
+  swiperOptions: SwiperOptions = {
+    slidesPerView: 1, // Display 1.2 images per view
+    loop: true,
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false, // Enable autoplay even when the user interacts with the Swiper
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true, // Allow pagination bullets to be clickable
+    },
+  };
 
   constructor(
-    private readonly cartSrv: CartService
-  ) { }
+    private readonly productSrv: ProductService,
+    private readonly cartSrv: CartService,
+    private readonly router: Router
+  ) {
+    this.cartVal = 0;
+  }
 
   async ngOnInit() {
-    this.cartVal = await this.checkInCart(this.product.id);
-    // this.cartSrv.inCartProducts.set(this.product.id,this.cartVal);
-    // console.log(this.cartSrv.inCartProducts);
+    console.log('Product is: ', this.product);
+    // this.cartVal = await this.cartSrv.checkInCart(this.product.id);     
+    // console.log('Value: ',  this.cartVal);
   }
 
-  // protected async getCart() {
-  //   const cartData = (await Preferences.get({ key: 'cart' })).value;
-  //   return cartData ? JSON.parse(cartData) : {};
-  // }
+  async IonViewDidEnter() {
 
-  // protected async saveCart(cart: any) {
-  //   await Preferences.set({ key: 'cart', value: JSON.stringify(cart) });
-  // }
-
-  // protected async checkInCart(id: string) {
-  //   const cart = await this.getCart();
-  //   return cart[id] ? parseInt(cart[id]) : 0;
-  // }
-
-  // protected async updateItem(id: string, amount: number) {
-  //   const cart = await this.getCart();
-
-  //   if (cart[id]) {
-  //     const newValue = parseInt(cart[id]) + amount;
-  //     if (newValue <= 0) {
-  //       delete cart[id];
-  //       this.cartVal = 0;
-  //     } else {
-  //       cart[id] = newValue.toString();
-  //       this.cartVal = newValue;
-  //     }
-  //   } else if (amount > 0) {
-  //     cart[id] = amount.toString();
-  //     this.cartVal = amount;
-  //   }
-
-  //   await this.saveCart(cart);
-  // }
-  protected async getCart() {
-    const cartData = (await Preferences.get({ key: 'cart' })).value;
-    return cartData ? JSON.parse(cartData) : [];
-  }
-
-  protected async saveCart(cart: any) {
-    await Preferences.set({ key: 'cart', value: JSON.stringify(cart) });
-  }
-
-  protected async checkInCart(id: string) {
-    const cart = await this.getCart();
-    const item = cart.find((item: any) => item.id === id);
-    return item ? item.amount : 0;
   }
 
   protected async updateItem(id: string, amount: number) {
-    const cart = await this.getCart();
-    const itemIndex = cart.findIndex((item: any) => item.id === id);
-
-    if (itemIndex !== -1) {
-      const newItemAmount = cart[itemIndex].amount + amount;
-      this.cartVal = newItemAmount;
-      if (newItemAmount <= 0) {
-        cart.splice(itemIndex, 1);
-      } else {
-        cart[itemIndex].amount = newItemAmount;
-      }
-    } else if (amount > 0) {
-      cart.push({ id, amount, name: this.product.name });
-      this.cartVal = 1;
-    }
-
-    await this.saveCart(cart);
+    await this.cartSrv.updateItem(id, amount);
+    this.cartVal = await this.cartSrv.checkInCart(this.product.id);
   }
 
-
+  navigateProductDetails() {
+    console.log(`click => product/${this.product.id} `);
+    this.router.navigate(['product', this.product.id]);
+  }
 }
