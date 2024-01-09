@@ -12,8 +12,8 @@
         </ion-item>
         <div class="ion-padding" slot="content">
           <ion-item
-            *ngFor="let item of menuSrv.manMenu"
-            (click)="navigate('man', item.route)"
+            *ngFor="let item of menuSrv.manMenu"            
+            [routerLink]="'/collection/' + item.route"
           >
             <ion-label>{{ item.name }}</ion-label>
           </ion-item>
@@ -26,7 +26,7 @@
         <div class="ion-padding" slot="content">
           <ion-item
             *ngFor="let item of menuSrv.womanMenu"
-            (click)="navigate('woman', item.route)"
+            [routerLink]="'/collection/' + item.route"
           >
             <ion-label>{{ item.name }}</ion-label>
           </ion-item>

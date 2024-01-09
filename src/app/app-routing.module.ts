@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/public/home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'collection/:gender/:type',
+    path: 'collection/:gender/:category',
     loadChildren: () => import('./pages/public/product-list/product-list.module').then(m => m.ProductListPageModule)
   },
   {

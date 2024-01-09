@@ -26,19 +26,6 @@ export class MenuComponent {
     protected readonly router: Router
   ) { }
 
-  async navigate(gender: string, category: string) {
-    await this.menuCtrl.close();
-    // Close the menu
-    await setTimeout(() => {
-      console.log("Delayed for 1 second.");
-    }, 1000);
-    this.router.navigate(['collection', gender, category]);
-  }
-
-  async showIsOpen() {
-    console.log('menu id:', this.menuId);
-  }
-
   navigateCart(){
     this.router.navigate(['cart']);
   }

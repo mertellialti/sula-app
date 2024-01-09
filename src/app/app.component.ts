@@ -6,6 +6,7 @@ import { ProductService } from './services/product.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { MenuService } from './services/menu.service';
+import { MenuComponent } from './components/menu/menu.component';
 
 register();
 

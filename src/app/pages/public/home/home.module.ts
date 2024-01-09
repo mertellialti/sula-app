@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { MenuComponent } from '../../../components/menu/menu.component';
 import { MobileHeaderComponent } from '../../../components/mobile-header/mobile-header.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
+import { DesktopHeaderComponent } from 'src/app/components/desktop-header/desktop-header.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FooterComponent } from '../../../components/footer/footer.component';
     HomePageRoutingModule,
     MenuComponent,
     MobileHeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DesktopHeaderComponent
   ],
   declarations: [HomePage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

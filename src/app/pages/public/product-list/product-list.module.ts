@@ -11,6 +11,7 @@ import { MenuComponent } from 'src/app/components/menu/menu.component';
 import { ProductComponent } from 'src/app/components/product/product.component';
 import { MobileHeaderComponent } from 'src/app/components/mobile-header/mobile-header.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { DesktopHeaderComponent } from 'src/app/components/desktop-header/desktop-header.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
     MenuComponent,
     ProductComponent,
     MobileHeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DesktopHeaderComponent
   ],
   declarations: [ProductListPage]
 })

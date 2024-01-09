@@ -1,31 +1,24 @@
-<ion-header collapse="condense">
-  <ion-toolbar>
-    <ion-button
-      (click)="back()"
-      routerDirection="back"
-      fill="clear"
-      shape="round"
-      color="translucent"
-    >
-      Back
-      <ion-icon slot="start" name="chevron-back"></ion-icon>
-    </ion-button>
-  </ion-toolbar>
-  <ion-toolbar>
-    <ion-title size="large">{{ product.name }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content fullscreen="true" class="ion-padding">  
+<ion-header collapse="condense"> </ion-header>
+<ion-toolbar>
+  <ion-button
+    (click)="back()"
+    routerDirection="back"
+    fill="clear"
+    shape="round"
+    color="translucent"
+  >
+    Back
+    <ion-icon slot="start" name="chevron-back"></ion-icon>
+  </ion-button>
+</ion-toolbar>
+<ion-content fullscreen="true" class="ion-padding">
   <ion-grid fixed>
     <ion-row>
       <!-- Left Column -->
       <ion-col size="12" sizeMd="6" sizeLg="5">
         <div>
           <!-- Swiper Image Slider -->
-          <swiper-container
-            [modules]="swiperModules"            
-            [autoplay]="true"
-          >
+          <swiper-container [modules]="swiperModules" [autoplay]="true">
             <swiper-slide *ngFor="let image of currentVariant.imgs">
               <img [src]="image" class="product-image" />
             </swiper-slide>
@@ -37,7 +30,6 @@
       <!-- Right Column -->
       <ion-col size="12" sizeMd="6" sizeLg="7">
         <ion-card style="height: max-content" color="translucent">
-
           <ion-card-header>
             <ion-card-title>{{ product.name }}</ion-card-title>
           </ion-card-header>
@@ -66,7 +58,7 @@
                 labelPlacement="stacked"
                 label="Size"
                 *ngIf="variantSizes"
-                (ionChange)="setSize()"                
+                (ionChange)="setSize()"
               >
                 <ion-select-option
                   [value]="size.size"

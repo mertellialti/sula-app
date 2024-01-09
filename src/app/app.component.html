@@ -1,5 +1,5 @@
 <ion-app>  
-  <ion-menu contentId="main-content">
+  <!-- <ion-menu contentId="main-content">
     <ion-header>
       <ion-toolbar>
         <ion-title>SULA</ion-title>
@@ -13,8 +13,7 @@
           </ion-item>
           <div class="ion-padding" slot="content">
             <ion-item
-              *ngFor="let item of menuSrv.manMenu"
-              (click)="navigate('man', item.route)"
+              *ngFor="let item of menuSrv.manMenu"              
             >
               <ion-label>{{ item.name }}</ion-label>
             </ion-item>
@@ -46,9 +45,9 @@
         <div style="height: 50px"></div>
       </ion-toolbar>
     </ion-footer>
-  </ion-menu>
-  <ion-router-outlet id="main-content"></ion-router-outlet>
-  
+  </ion-menu> -->
+  <app-menu></app-menu>
+  <ion-router-outlet id="main-content"></ion-router-outlet>  
 </ion-app>
 
 <!-- <ion-app>

@@ -1,3 +1,108 @@
-<p>
-  desktop-header works!
-</p>
+<!-- <ion-toolbar *ngIf="platformSrv.currentPlatform === 'desktop'">
+  <ion-grid>
+    <ion-row style="align-items: center">
+      <ion-col size="2" style="text-align: center; float: left" routerLink="">
+        <h4>SULA</h4>
+      </ion-col>
+      <ion-col size="6">
+        <ion-tabs>
+
+          <ion-tab-bar slot="top">
+            <ion-tab-button tab="men">
+              <ion-label>Man</ion-label>
+            </ion-tab-button>
+
+
+            <ion-tab-button tab="women">
+              <ion-label>Woman</ion-label>
+            </ion-tab-button>
+
+
+            <ion-tab-button tab="about">
+              <ion-label>About</ion-label>
+            </ion-tab-button>
+          
+          </ion-tab-bar>
+        </ion-tabs>
+      </ion-col>
+      <ion-col size="2" style="text-align: center">
+        <ion-button routerDirection="forward" (click)="navCart()" fill="clear">
+          <ion-icon
+            name="cart-outline"
+            size="large"
+            style="float: right"
+          ></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="2" style="text-align: center">
+        <ion-avatar>
+          <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar> -->
+<ion-toolbar *ngIf="platformSrv.currentPlatform === 'desktop'">
+  <ion-tabs>
+    <ion-tab-bar>
+      <ion-grid fixed>
+        <ion-row style="align-items: center">
+          <ion-col
+            size="2"
+            style="text-align: center; float: left"
+            routerLink=""
+          >
+            <h4>SULA</h4>
+          </ion-col>
+          <ion-col size="2">
+            <ion-tab-button tab="men" (mouseenter)="showCard('manMenu')">
+              <ion-label>Man</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col size="2">
+            <ion-tab-button tab="women" (mouseenter)="showCard('womanMenu')">
+              <ion-label>Woman</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col size="2">
+            <ion-tab-button tab="about">
+              <ion-label>About</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button
+              routerDirection="forward"
+              (click)="navCart()"
+              fill="clear"
+            >
+              <ion-icon
+                name="cart-outline"
+                size="large"
+                style="float: right"
+              ></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="2" style="text-align: center">
+            <ion-button expand="full" fill="clear" size="small">
+              <ion-avatar slot="icon-only" style="padding: 10px">
+                <img
+                  src="https://ionicframework.com/docs/img/demos/avatar.svg"
+                />
+              </ion-avatar>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>
+<ion-card *ngIf="cardVisible" (mouseenter)="showCard(currentCategory)" (mouseleave)="hideCard()" color="translucent">
+  <ion-card-header>    
+    <ion-card-title>{{cardTitle}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item *ngFor="let item of selectedCollection" [routerLink]="'/collection/' + item.route" color="translucent">
+      <ion-label>{{ item.name }}</ion-label>
+    </ion-item>
+  </ion-card-content>
+</ion-card>

@@ -4,6 +4,7 @@
 >
   <app-mobile-header></app-mobile-header>
 </ion-header>
+<app-desktop-header></app-desktop-header>
 <ion-content fullscreen="true" class="ion-padding" id="main-content">
   <ion-grid fixed>
     <ion-row>
@@ -31,14 +32,18 @@
       <ion-col size="12" *ngIf="this.products.length == 0">
         <ion-card>
           <ion-card-header>
-            <ion-card-title style="text-align: center;">No Products Found</ion-card-title>
+            <ion-card-title style="text-align: center"
+              >No Products Found</ion-card-title
+            >
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <ion-icon name="warning-outline" style="font-size: 60px; color: orange;"></ion-icon>
+            <ion-icon
+              name="warning-outline"
+              style="font-size: 60px; color: orange"
+            ></ion-icon>
             <p>Please check back later or try a different search.</p>
           </ion-card-content>
         </ion-card>
-        
       </ion-col>
     </ion-row>
   </ion-grid>

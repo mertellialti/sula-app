@@ -8,11 +8,11 @@ import { filter } from 'rxjs';
 export class MenuService {
 
   manMenu = [
-    { name: 'All Sale', route: 'all-sale' },
-    { name: 'T-Shirts', route: 't-shirt' },
-    { name: 'Sweatshirts', route: 'sweatshirt' },
-    { name: 'Jackets', route: 'jacket' },
-    { name: 'Caps', route: 'cap' },
+    { name: 'All Sale', route: 'man/all-sale' },
+    { name: 'T-Shirts', route: 'man/t-shirt' },
+    { name: 'Sweatshirts', route: 'man/sweatshirt' },
+    { name: 'Jackets', route: 'man/jacket' },
+    { name: 'Caps', route: 'man/cap' },
   ]
 
   womanMenu = [
@@ -39,7 +39,7 @@ export class MenuService {
     { name: 'X', icon: 'logo-twitter' },
     { name: 'SoundCloud', icon: 'logo-soundcloud' },
   ]
-  
+
   private _uniqueMenuId: string = '';
 
   constructor(private router: Router) {

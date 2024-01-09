@@ -40,7 +40,7 @@ export class HomePage {
   constructor(
     protected readonly menuSrv: MenuService,
     private readonly footerSrv: FooterService,
-    private readonly router: Router
+    private readonly router: Router,    
   ) { 
     this.manMenu = this.menuSrv.manMenu;
     this.womanMenu = this.menuSrv.womanMenu;

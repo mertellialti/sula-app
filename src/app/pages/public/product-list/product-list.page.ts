@@ -40,18 +40,11 @@ export class ProductListPage implements OnInit {
   async ngOnInit() {
     this.route.params.subscribe((params) => {
       this.gender = params['gender'];
-      this.type = params['type'];
+      this.type = params['category'];
       this.getProducts();
     });
   }
 
-  ionViewDidEnter() {
-    this.menuCtrl.isEnabled().then((isEnabled) => {
-      if (!isEnabled) {
-        this.menuCtrl.enable(true);
-      }
-    });
-  }
 
   getProducts() {
     this.products = this.productSrv.getProductsByCategoryAndGender(this.type, this.gender);
@@ -59,20 +52,6 @@ export class ProductListPage implements OnInit {
     if (this.products.length == 0) {
       console.warn('no products',this.products);
     }
-  }
-
-  navigateSegment(route: string) {
-    console.log('route: ', route);
-    this.router.navigate(['collection', route]);
-  }
-
-  async navigate(gender: string, category: string) {
-    await this.menuCtrl.close();
-    // Close the menu
-    await setTimeout(() => {
-      console.log("Delayed for 1 second.");
-    }, 1000);
-    this.router.navigate(['collection', gender, category]);
   }
 
 }
