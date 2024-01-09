@@ -1,0 +1,50 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>SULA</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-accordion-group>
+      <ion-accordion value="man">
+        <ion-item slot="header" color="translucent" lines="none">
+          <ion-label>Men's</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-item
+            *ngFor="let item of menuSrv.manMenu"
+            (click)="navigate('man', item.route)"
+          >
+            <ion-label>{{ item.name }}</ion-label>
+          </ion-item>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="woman">
+        <ion-item slot="header" color="translucent" lines="none">
+          <ion-label>Women's</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-item
+            *ngFor="let item of menuSrv.womanMenu"
+            (click)="navigate('woman', item.route)"
+          >
+            <ion-label>{{ item.name }}</ion-label>
+          </ion-item>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-item>
+        <ion-label>Login</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sign Up</ion-label>
+      </ion-item>
+      <div style="height: 50px"></div>
+    </ion-toolbar>
+  </ion-footer>
+</ion-menu>
+
+

@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
+
   manMenu = [
-    { name: 'All Sale', route: 'man/all-sale' },
-    { name: 'T-Shirts', route: 'man/t-shirt' },
-    { name: 'Sweatshirts', route: 'man/sweatshirt' },
-    { name: 'Jackets', route: 'man/jackets' },
-    { name: 'Caps', route: 'man/caps' },
+    { name: 'All Sale', route: 'all-sale' },
+    { name: 'T-Shirts', route: 't-shirt' },
+    { name: 'Sweatshirts', route: 'sweatshirt' },
+    { name: 'Jackets', route: 'jacket' },
+    { name: 'Caps', route: 'cap' },
   ]
 
   womanMenu = [
@@ -36,5 +39,25 @@ export class MenuService {
     { name: 'X', icon: 'logo-twitter' },
     { name: 'SoundCloud', icon: 'logo-soundcloud' },
   ]
-  constructor() { }
+  
+  private _uniqueMenuId: string = '';
+
+  constructor(private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.updateUniqueId();
+    });
+  }
+
+  private updateUniqueId() {
+    const currentUrl = this.router.url;
+    this._uniqueMenuId = 'menu-' + currentUrl.replace(/\//g, '-').substring(1);
+    this._uniqueMenuId = this._uniqueMenuId.replace(/[^a-zA-Z0-9-]/g, '');
+    console.log('unique id is ', this._uniqueMenuId);
+  }
+
+  get uniqueMenuId() {
+    return this._uniqueMenuId;
+  }
 }

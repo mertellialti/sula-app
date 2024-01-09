@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { MenuService } from '../services/menu.service';
-import { FooterService } from '../services/footer.service';
+import { MenuService } from '../../../services/menu.service';
+import { FooterService } from '../../../services/footer.service';
 import { IonicSlides } from '@ionic/angular';
 import { SwiperOptions } from 'swiper/types';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -37,8 +38,9 @@ export class HomePage {
   
 
   constructor(
-    private readonly menuSrv: MenuService,
-    private readonly footerSrv: FooterService
+    protected readonly menuSrv: MenuService,
+    private readonly footerSrv: FooterService,
+    private readonly router: Router
   ) { 
     this.manMenu = this.menuSrv.manMenu;
     this.womanMenu = this.menuSrv.womanMenu;
@@ -51,4 +53,7 @@ export class HomePage {
     console.log('route cart')
   }
 
+  navigateHome(){
+    this.router.navigate([''])
+  }
 }

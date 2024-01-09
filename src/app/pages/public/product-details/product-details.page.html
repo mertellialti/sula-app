@@ -1,0 +1,120 @@
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-button
+      (click)="back()"
+      routerDirection="back"
+      fill="clear"
+      shape="round"
+      color="translucent"
+    >
+      Back
+      <ion-icon slot="start" name="chevron-back"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title size="large">{{ product.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true" class="ion-padding">  
+  <ion-grid fixed>
+    <ion-row>
+      <!-- Left Column -->
+      <ion-col size="12" sizeMd="6" sizeLg="5">
+        <div>
+          <!-- Swiper Image Slider -->
+          <swiper-container
+            [modules]="swiperModules"            
+            [autoplay]="true"
+          >
+            <swiper-slide *ngFor="let image of currentVariant.imgs">
+              <img [src]="image" class="product-image" />
+            </swiper-slide>
+          </swiper-container>
+          <!-- Thumbnails can be added here -->
+        </div>
+      </ion-col>
+
+      <!-- Right Column -->
+      <ion-col size="12" sizeMd="6" sizeLg="7">
+        <ion-card style="height: max-content" color="translucent">
+
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Product Details and Actions -->
+
+            <!-- Display Color Chips -->
+            <ion-chip
+              class="ion-padding"
+              color="primary"
+              mode="ios"
+              *ngFor="let item of product.variants"
+              [outline]="item.id === currentVariant.id ? 'false' : 'true'"
+              [disabled]="item.id === currentVariant.id ? 'true' : 'false'"
+              (click)="changeVariant(item.id)"
+            >
+              <ion-label>{{ item.color }}</ion-label>
+            </ion-chip>
+
+            <!-- Select Size -->
+            <ion-item color="translucent">
+              <ion-select
+                [(ngModel)]="selectedSize"
+                multiple="false"
+                placeholder="Size"
+                labelPlacement="stacked"
+                label="Size"
+                *ngIf="variantSizes"
+                (ionChange)="setSize()"                
+              >
+                <ion-select-option
+                  [value]="size.size"
+                  [disabled]="size.amount <= 0"
+                  *ngFor="let size of variantSizes"
+                >
+                  {{ size.size }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <!-- Add to Cart Button -->
+            <ion-button
+              (click)="cartSrv.updateItem(currentVariant.id,1)"
+              expand="full"
+              fill="clear"
+              color="dark"
+              *ngIf="cartVal === 0"
+            >
+              <ion-icon name="bag-add"></ion-icon>
+              Add
+            </ion-button>
+
+            <!-- Display Cart Quantity -->
+            <div *ngIf="cartVal !== 0">
+              <ion-chip>
+                <ion-button
+                  shape="round"
+                  fill="clear"
+                  color="dark"
+                  (click)="cartSrv.updateItem(currentVariant.id,-1)"
+                >
+                  <ion-icon name="remove"></ion-icon>
+                </ion-button>
+                <ion-label>{{ cartVal }}</ion-label>
+                <ion-button
+                  shape="round"
+                  fill="clear"
+                  color="dark"
+                  (click)="cartSrv.updateItem(currentVariant.id,1)"
+                >
+                  <ion-icon name="add"></ion-icon>
+                </ion-button>
+              </ion-chip>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

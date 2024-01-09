@@ -1,0 +1,107 @@
+<ion-header
+  collapse="condense"
+  style="align-items: center; justify-content: center"
+>
+  <app-mobile-header></app-mobile-header>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding" id="main-content">
+  <ion-grid fixed>
+    <ion-row>
+      <!-- <ion-col size="12" size-md="12" size-lg="12">
+          <div class="card-container">
+            <div class="card-background">
+              <img src="../../assets/imgs/10.jpeg" class="image-content" style="width: 100%;" />
+            </div>
+            <div class="card-content">
+              <h1 class="image-content">SULA</h1>
+            </div>
+          </div>
+        </ion-col> -->
+
+      <ion-col size="12" size-md="12" size-lg="12">
+        <div class="card-container">
+          <!-- <div class="card-background">
+              <img src="../../assets/imgs/2.jpeg" class="image-content" />
+            </div> -->
+          <swiper-container
+            [modules]="swiperModules"
+            [options]="swiperOptions"
+            [autoplay]="true"
+          >
+            <swiper-slide *ngFor="let image of slidingImgs">
+              <div class="product-image-container">
+                <img [src]="image" class="image-content" />
+              </div>
+            </swiper-slide>
+          </swiper-container>
+
+          <div class="card-content">
+            <h2 class="product-image">All New 2024</h2>
+            <ion-button expand="full" fill="outline" color="medium"
+              >Check New Session
+            </ion-button>
+          </div>
+        </div>
+        <swiper-pagination></swiper-pagination>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="6">
+        <div class="card-container">
+          <div class="card-background">
+            <img src="../../assets/imgs/3.jpeg" class="image-content" />
+          </div>
+          <div class="card-content">
+            <h2 class="image-content">Aesthetic</h2>
+            <p>
+              Donec imperdiet velit at tellus venenatis scelerisque. Donec eget
+              justo feugiat, imperdiet leo quis, egestas nibh. Donec ullamcorper
+              velit quis justo viverra pulvinar.
+            </p>
+            <ion-button expand="full" fill="clear" color="dark"
+              >Check</ion-button
+            >
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="6">
+        <div class="card-container">
+          <div class="card-background">
+            <img src="../../assets/imgs/4.jpeg" class="image-content" />
+          </div>
+          <div class="card-content">
+            <h2 class="image-content">Aesthetic</h2>
+            <p>
+              Suspendisse non sodales orci. Fusce at ex nulla. Interdum et
+              malesuada fames ac ante ipsum primis in faucibus. Maecenas rhoncus
+              convallis condimentum. Nam a dapibus sapien. Cras nec iaculis
+              libero. Morbi tempor tortor vel justo rutrum, at eleifend nunc
+              lacinia.
+            </p>
+            <ion-button expand="full" fill="clear" color="dark"
+              >Check</ion-button
+            >
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" sizeMd="12" sizeLg="4">
+        <iframe
+          style="border-radius: 12px"
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DWVY4eLfA3XFQ?utm_source=generator&theme=0"
+          width="100%"
+          height="352"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </ion-col>
+      <ion-col size="12" sizeMd="12" sizeLg="4"></ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-footer>
+    <app-footer></app-footer>
+  </ion-footer>
+</ion-content>

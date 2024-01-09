@@ -1,0 +1,48 @@
+<ion-header
+  collapse="condense"
+  style="align-items: center; justify-content: center"
+>
+  <app-mobile-header></app-mobile-header>
+</ion-header>
+<ion-content fullscreen="true" class="ion-padding" id="main-content">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-md="12" size-lg="12">
+        <div class="card-container">
+          <div class="card-background">
+            <img
+              src="../../../assets/imgs/man/t-shirt/header.jpeg"
+              class="image-content"
+              style="width: 100%; height: 360px"
+            />
+          </div>
+          <div class="card-content">
+            <h1 class="image-content">{{ type.toUpperCase() }}S</h1>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeMd="6" sizeLg="4" *ngFor="let item of products">
+        <app-product [product]="item"></app-product>
+      </ion-col>
+      <ion-col size="12" *ngIf="this.products.length == 0">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title style="text-align: center;">No Products Found</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-icon name="warning-outline" style="font-size: 60px; color: orange;"></ion-icon>
+            <p>Please check back later or try a different search.</p>
+          </ion-card-content>
+        </ion-card>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-footer>
+    <app-footer></app-footer>
+  </ion-footer>
+</ion-content>

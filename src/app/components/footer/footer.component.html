@@ -1,0 +1,28 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="6" size-md="6" size-lg="4" style="text-align: center">
+      <ion-item
+        color="translucent"
+        *ngFor="let item of menuSrv.footerColumn1"
+        style="text-wrap: balance"
+      >
+        <ion-label color="medium">{{ item.name }}</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      <ion-item
+        color="translucent"
+        *ngFor="let item of menuSrv.footerColumn2"
+        style="text-wrap: balance"
+      >
+        <ion-icon *ngIf="item.icon" slot="start" [name]="item.icon"></ion-icon>
+        <ion-label color="medium">{{ item.name }}</ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-title color="light">SULA</ion-title>
+    </ion-col>
+  </ion-row>
+</ion-grid>

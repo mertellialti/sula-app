@@ -1,37 +1,14 @@
-<div class="card-container">
+<div class="card-container" (click)="navigateProductDetails()">
   <swiper-container
-    [modules]="swiperModules"
-    [options]="{ slidesPerView: 1, loop: true }"
+  [modules]="swiperModules"            
+  [autoplay]="true"
   >
-    <swiper-slide *ngFor="let image of product.images">
-      <img [src]="image" alt="Product Image" class="product-image" />
+    <swiper-slide *ngFor="let image of product.defaultImgs">
+      <img [src]="image" class="product-image" />
     </swiper-slide>
   </swiper-container>
 
-  <div class="card-content">
-    <h2 class="image-content">{{ product.name }}</h2>
-    <ion-button
-      *ngIf="cartVal == 0"
-      (click)="updateItem(product.id, 1)"
-      expand="full"
-      fill="clear"
-      color="dark"
-    >
-      <ion-icon name="bag-add-outline"></ion-icon>
-      Add
-    </ion-button>
-    <div *ngIf="cartVal != 0">
-      <ion-chip>
-        <ion-button shape="round" fill="clear" color="dark" (click)="updateItem(product.id, -1)">
-          <ion-icon
-            name="remove"            
-          ></ion-icon>
-        </ion-button>
-        <ion-label>{{ cartVal }}</ion-label>
-        <ion-button shape="round" fill="clear" color="dark" (click)="updateItem(product.id, 1)">
-          <ion-icon name="add"></ion-icon>
-        </ion-button>
-      </ion-chip>
-    </div>
+  <div class="card-content" >
+    <h2 class="image-content">{{ product.name }}</h2> 
   </div>
 </div>
