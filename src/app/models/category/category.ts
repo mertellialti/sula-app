@@ -1,4 +1,4 @@
-import { Base } from "./base/base";
+import { Base } from "../base/base";
 
 export class Category extends Base {
     name: string | undefined

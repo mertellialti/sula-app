@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
-import { ProductService } from './product.service';
+import { ProductService } from '../product/product.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,11 @@ export class CartService implements OnInit {
   constructor(
     private readonly productSrv: ProductService
   ) {
-    this.cart.push(this.productSrv.sampleProducts[0].variants[0],this.productSrv.sampleProducts[2].variants[0]);
-    console.log('cart :',this.cart);
+
   }
 
   ngOnInit() {
-    
+
   }
 
   async getCart() {
@@ -29,23 +28,35 @@ export class CartService implements OnInit {
 
   async saveCart() {
     const cacheList = this.cart.map((element: any) => {
-      return element = { id: element.id, name: element.name, amount: element.amount, price: element.price }
+      return element = { id: element.id, amount: element.amount, price: element.price }
     })
     await Preferences.set({ key: 'cart', value: JSON.stringify(cacheList) });
   }
 
   async checkInCart(id: string) {
     if (!this.cart) await this.getCart();
-    const item = this.cart.find((item: any) => { return item.id === id });
+    const item = this.cart.find((item: any) => { return (item.id === id) });
     return item ? item.amount : 0;
   }
-  
-  async updateItem(id: string, amount: number) {
-    const itemIndex = this.cart.findIndex((item: any) => item.id === id);
-    const product = this.productSrv.getById(id);
+
+  async updateItem(id: string, amount: number, size?: string) {
+    let itemIndex;
+    let cartAmount;
+
+    if (size) {
+      itemIndex = this.cart.findIndex((item: any) => (item.id === id && item.size === size));
+    }
+    else {
+      itemIndex = this.cart.findIndex((item: any) => (item.id === id));
+    }
+    // const product = this.productSrv.getById(id);
+    // TODO 
+    const product = this.productSrv.getByIdAndVariantId(id, id);
+    console.log('product: ', product);
 
     if (itemIndex !== -1) {
       const newItemAmount = this.cart[itemIndex].amount + amount;
+      cartAmount = newItemAmount;
       if (newItemAmount <= 0) {
         this.cart.splice(itemIndex, 1);
         this.cartTotal -= product?.price!;
@@ -54,13 +65,20 @@ export class CartService implements OnInit {
         (amount < 0) ? (this.cartTotal -= product?.price!) : (this.cartTotal += product?.price!);
       }
     } else if (amount > 0) {
-
-      this.cart.push({ id, amount, name: product?.name, price: product?.price, discount: product?.discount });
+      cartAmount = 1;
+      // TODO 
+      this.cart.push({ id, amount });
       this.cartTotal += product?.price!;
     }
 
     console.log('CART: ', this.cart);
     await this.saveCart();
+    return cartAmount;
+  }
+
+  async getProductAmountInCart(id: string, size: string) {
+    const product = this.cart.find((item: any) => (item.id === id && item.size == size));
+    return product ? product.amount : 0;
   }
 
   async getCartTotal() {
@@ -72,11 +90,4 @@ export class CartService implements OnInit {
     }
   }
 
-  discardCartByProductId(id: string) {
-    const cart = this.cart.filter((p: any) => { return p.id !== id });
-    this.cart = cart;
-  }
-  updateCartByProductIdAndAmount(id: string, amount: number) {
-
-  }
 }

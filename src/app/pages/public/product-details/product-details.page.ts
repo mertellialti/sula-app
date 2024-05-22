@@ -2,8 +2,8 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IonicSlides } from '@ionic/angular';
-import { CartService } from 'src/app/services/cart.service';
-import { ProductService } from 'src/app/services/product.service';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-product-details',
@@ -33,11 +33,12 @@ export class ProductDetailsPage implements OnInit {
       this.productId = params['productId'];
       this.product = productSrv.getById(this.productId);
       this.currentVariant = this.product.variants[0];
-      this.setSizes();
+      this.setSizes();      
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.cartVal = await this.cartSrv.getProductAmountInCart(this.currentVariant.id, this.selectedSize);
   }
 
   back() {
@@ -57,15 +58,26 @@ export class ProductDetailsPage implements OnInit {
     console.log('sizes: ', this.variantSizes);
   }
 
-  setSize() {
+  async setSize() {
     console.log('Selected size: ', this.selectedSize, this.variantSizes);
+    this.cartVal = await this.cartSrv.getProductAmountInCart(this.currentVariant.id, this.selectedSize);
   }
 
-  changeVariant(id: string) {
-    console.log('Variant changed: ',this.currentVariant,id);
-    if(this.currentVariant.id === id) return;
+  async changeVariant(id: string) {
+    console.log('Variant changed: ', this.currentVariant, id);
+    if (this.currentVariant.id === id) return;
     this.currentVariant = this.product.variants.find((v: any) => {
       return v.id == id;
     });
+    this.cartVal = await this.cartSrv.getProductAmountInCart(this.currentVariant.id, this.selectedSize);
+    this.setSizes();
+  }
+
+  async updateCart(amount: number) {
+    this.cartVal = await this.cartSrv.updateItem(this.currentVariant.id, amount, this.selectedSize);    
+  }
+
+  async getCartVal(productId: string, id: string){
+
   }
 }

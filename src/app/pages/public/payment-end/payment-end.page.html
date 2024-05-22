@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Payment Success</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar style="text-align: center;">
+      <h4 size="large">Payment Successful</h4>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="text-align: center"
+        >Thanks For Choosing Us</ion-card-title
+      >
+    </ion-card-header>
+    <ion-card-content class="ion-text-center">
+      <ion-icon
+        name="cube-outline"
+        style="font-size: 60px; color: orange"
+      ></ion-icon>
+      <p>We got your order and started preparing it immediately. Please check your mailbox your shipment details. Have a nice day!</p>
+      <p style="text-align: center;">SULA Team</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-button [routerLink]="'/'" expand="block" fill="clear" shape="round">
+    Home Page
+  </ion-button>
+</ion-content>

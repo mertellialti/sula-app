@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button
+      (click)="back()"
+      routerDirection="back"
+      fill="clear"
+      shape="round"
+      color="translucent"
+    >
+      Address
+      <ion-icon slot="start" name="chevron-back"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Payment</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>      
+      <ion-card-title>
+        Cart
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>      
+      <ion-card-title>
+        Address
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <app-credit-card></app-credit-card>
+    <ion-card-header>      
+      <!-- <ion-card-title>Card Details</ion-card-title> -->
+      
+    </ion-card-header>
+    <ion-card-content>                  
+      <!-- <ion-input type="text" placeholder="John Doe" label="Card Owner" labelPlacement="stacked"></ion-input>
+      <ion-input type="text" placeholder="XXXX XXXX XXXX XXXX XX" label="Card Number" labelPlacement="stacked"></ion-input>
+      <ion-input type="text" placeholder="MM/YY" label="Validity Date" labelPlacement="stacked"></ion-input>
+      <ion-input type="text" placeholder="XXX" label="CVC/CVV" labelPlacement="stacked"></ion-input> -->
+      <ion-button expand="block" disabled="false" (click)="pay()" routerDirection="forward">
+        <ion-icon slot="start" name="card-outline"></ion-icon>
+        Pay
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="translucent" *ngIf="false">
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">Payment Options</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button fill="outline" expand="block" disabled="true">
+        <ion-icon slot="start" name="logo-apple"></ion-icon>
+        Apple Pay
+      </ion-button>
+      <ion-button fill="outline" expand="block" disabled="true">
+        <ion-icon slot="start" name="logo-google"></ion-icon>
+        Google Pay
+      </ion-button>
+      <ion-button fill="outline" expand="block" disabled="true">
+        <ion-icon slot="start" name="logo-paypal"></ion-icon>
+        Paypal (Not Available In Your Country)
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -2,7 +2,7 @@ import { CommonModule, Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { IonicModule, MenuController } from '@ionic/angular';
-import { MenuService } from 'src/app/services/menu.service';
+import { MenuService } from 'src/app/services/menu/menu.service';
 
 @Component({
   selector: 'app-menu',

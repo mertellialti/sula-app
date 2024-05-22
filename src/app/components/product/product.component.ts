@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import { IonicModule } from '@ionic/angular';
 import { IonicSlides } from '@ionic/angular';
-import { CartService } from 'src/app/services/cart.service';
-import { ProductService } from 'src/app/services/product.service';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { ProductService } from 'src/app/services/product/product.service';
 import { SwiperOptions } from 'swiper/types/swiper-options';
 
 @Component({
@@ -53,11 +53,6 @@ export class ProductComponent implements OnInit {
 
   async IonViewDidEnter() {
 
-  }
-
-  protected async updateItem(id: string, amount: number) {
-    await this.cartSrv.updateItem(id, amount);
-    this.cartVal = await this.cartSrv.checkInCart(this.product.id);
   }
 
   navigateProductDetails() {

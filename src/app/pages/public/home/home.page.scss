@@ -51,7 +51,7 @@ ion-item {
   border: 1ch;
   filter: drop-shadow(30%);
   filter: grayscale(100%);
-  object-fit: fill;
+  object-fit: fit;
 }
 
 // .card-container {
@@ -142,11 +142,13 @@ ion-item {
   border: 1px solid #000; /* Adjust border style and color as needed */
   overflow: hidden; /* Hide any image overflow */
   width: 100%; /* Ensure the container fills the available width */
-  max-height: 100%; /* Set a fixed maximum height for the container, adjust as needed */
+  max-height: 100%; /* Set a fixed maximum height for the container, adjust as needed */ 
+   
 }
 
 .product-image {
   width: 100%; /* Ensure the image fills the container horizontally */
   height: 100%; /* Ensure the image fills the container vertically */
   object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+  filter: grayscale(100%);
 }

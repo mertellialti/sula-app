@@ -22,7 +22,24 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  }
+  },
+  {
+    path: 'payment/address',
+    loadChildren: () => import('./pages/public/address/address.module').then( m => m.AddressPageModule)
+  },
+  {
+    path: 'payment/payment-option',
+    loadChildren: () => import('./pages/public/payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'payment-end',
+    loadChildren: () => import('./pages/public/payment-end/payment-end.module').then( m => m.PaymentEndPageModule)
+  },
+  { 
+    path: '**',
+    loadChildren: () => import('./pages/security/page-not-found/page-not-found.module').then(m => m.PageNotFoundPageModule)
+  },
+ 
 ];
 
 @NgModule({

@@ -1,10 +1,11 @@
+
+<app-desktop-header></app-desktop-header>
 <ion-header
-  collapse="condense"
+  [translucent]="true"
   style="align-items: center; justify-content: center"
 >
   <app-mobile-header></app-mobile-header>
 </ion-header>
-<app-desktop-header></app-desktop-header>
 <ion-content [fullscreen]="true" class="ion-padding" id="main-content">
   <ion-grid fixed>
     <ion-row>
@@ -31,7 +32,7 @@
           >
             <swiper-slide *ngFor="let image of slidingImgs">
               <div class="product-image-container">
-                <img [src]="image" class="image-content" />
+                <img [src]="image" class="product-image" />
               </div>
             </swiper-slide>
           </swiper-container>
@@ -87,12 +88,12 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size="12" sizeMd="12" sizeLg="4">
+      <ion-col size="12" sizeMd="12" sizeLg="12">
         <iframe
           style="border-radius: 12px"
-          src="https://open.spotify.com/embed/playlist/37i9dQZF1DWVY4eLfA3XFQ?utm_source=generator&theme=0"
+          src="https://open.spotify.com/embed/artist/5L7Egy46wiejr82RAXIx8v?utm_source=generator&theme=0"
           width="100%"
-          height="352"
+          height="152"
           frameborder="0"
           allowfullscreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

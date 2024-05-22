@@ -4,7 +4,6 @@ import { ProductVariant } from "./product-variant";
 export class Product extends Base {    
     name: string;    
     gender: string;    
-    // categoryIds: string[] = [];
     category: string
     variants: ProductVariant[] = [];    
     total: number = 0;
@@ -16,8 +15,7 @@ export class Product extends Base {
         this.id = id;
         this.name = name;    
         this.gender = gender;        
-        this.category = category
-        // this.categoryIds = categoryIds;        
+        this.category = category      
     }
 
 }

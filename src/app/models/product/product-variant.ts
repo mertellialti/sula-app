@@ -3,6 +3,7 @@ import { Base } from "../base/base";
 export class ProductVariant extends Base {
 
     productId: string | undefined
+    variantName: string | undefined
     price: number | undefined;
     imgs: string[] | undefined
     thumbnail: string | undefined

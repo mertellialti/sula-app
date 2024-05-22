@@ -15,50 +15,99 @@
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Your Cart</ion-title>
+    <ion-toolbar style="align-items: center">
+      <!-- <ion-title size="large" >
+      Your Cart
+      </ion-title> -->
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid>
-    <ion-row>
-      <!-- Adjusting the column size for larger screens -->
-      <ion-col>
-        <ion-card *ngFor="let item of cartSrv.cart">
-          <ion-item lines="none">
-            <ion-thumbnail slot="start">
-              <!-- <img [src]="cartSrv.getImg(item.id)"/> -->
-            </ion-thumbnail>
-            <ion-label>
-              <h2>{{ item.name }}</h2>
-              <!-- <p>Amount: {{ item.amount }}</p> -->
-               <!-- <p>Price: {{ item.price * item.amount }} $</p> -->
-               <p>Price: {{ item.price }} $</p>
-            </ion-label>
-            <ion-buttons slot="end">
-              <ion-button
-                fill="clear"
-                (click)="cartSrv.updateItem(item.id, -1)"
-              >
-                <ion-icon slot="icon-only" name="remove"></ion-icon>
-              </ion-button>
-              <ion-button fill="clear" (click)="cartSrv.updateItem(item.id, 1)">
-                <ion-icon slot="icon-only" name="add"></ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-    <ion-item>
-      <ion-label> Total {{cartSrv.cartTotal}}$</ion-label>
-    </ion-item>
-    <ion-row>
-      <ion-col size="12">
-        <ion-button expand="block" fill="clear" shape="round">
+  <!-- Adjusting the column size for larger screens -->
+
+  <div *ngIf="cartSrv.cart.length === 0">
+    <!-- <ion-grid class="ion-align-items-center ion-justify-content-center">
+      <ion-row>
+        <ion-col size="12" class="ion-text-center">
+          <h1></h1>          
+          <p>Let's check out <strong>SULA</strong>`s new collections.</p>
+          <a [routerLink]="'/'"> Let's go!</a>
+        </ion-col>
+      </ion-row> 
+    </ion-grid> -->
+    <ion-grid fixed style="text-align: center">
+      <ion-row>
+        <ion-col size="12">
+          <ion-icon
+            name="cart"
+            style="font-size: 50px; color: #3880ff"
+          ></ion-icon>
+        </ion-col>
+        <ion-col
+          size="12"
+          style="font-size: 20px; font-weight: bold; margin-top: 10px"
+        >
+          Ups, your cart is empty.
+        </ion-col>
+        <ion-col size="12" style="margin-top: 15px">
+          <ion-label style="font-size: 16px">
+            <a [routerLink]="'/'" style="text-decoration: none; color: #3880ff">
+              Let's check out <strong>SULA</strong>'s popular collections.
+            </a>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="cartSrv.cart.length !== 0">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Your Cart</ion-label>
+      </ion-list-header>
+      <ion-item
+        *ngFor="let item of cartSrv.cart"
+        lines="none"        
+        class="ion-padding"
+      >
+        <ion-thumbnail slot="start" [routerLink]="'/product/' + item.productId" routerDirection="back">
+          <img [src]="getThumbnail(item.productId, item.id)" />
+        </ion-thumbnail>
+        <ion-label [routerLink]="'/product/' + item.productId" routerDirection="back">
+          <h2>{{ item.name }}</h2>
+          <p>Price: {{ item.price }} $</p>
+          <p>Size: {{item.size}}</p>
+        </ion-label>
+        <ion-buttons slot="end" class="ion-padding">
+          <ion-button
+            fill="clear"
+            (click)="cartSrv.updateItem(item.id, -1, item.size)"
+          >
+            <ion-icon slot="icon-only" name="remove"></ion-icon>
+          </ion-button>
+          <ion-label>{{item.amount}}</ion-label>
+          <ion-button
+            fill="clear"
+            (click)="cartSrv.updateItem(item.id, 1,item.size)"
+          >
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+
+    <ion-card color="translucent">
+      <ion-card-header>
+        <ion-card-title style="text-align: right"
+          >Total {{cartSrv.cartTotal}} $</ion-card-title
+        >
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button
+          expand="full"
+          [routerLink]="'/payment/address'"
+        >
           Proceed
         </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

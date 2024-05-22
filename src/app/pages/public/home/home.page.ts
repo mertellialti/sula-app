@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MenuService } from '../../../services/menu.service';
-import { FooterService } from '../../../services/footer.service';
+import { MenuService } from '../../../services/menu/menu.service';
+import { FooterService } from '../../../services/footer/footer.service';
 import { IonicSlides } from '@ionic/angular';
 import { SwiperOptions } from 'swiper/types';
 import { Router } from '@angular/router';

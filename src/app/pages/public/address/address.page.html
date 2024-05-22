@@ -1,0 +1,100 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button
+      (click)="back()"
+      routerDirection="back"
+      fill="clear"
+      shape="round"
+      color="translucent"
+    >
+      Cart
+      <ion-icon slot="start" name="chevron-back"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Address</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>      
+      <ion-card-title>No Saved Address</ion-card-title>
+    </ion-card-header>    
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Address</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input
+        type="text"
+        placeholder="Name"
+        label="Name"
+        labelPlacement="stacked"
+      ></ion-input>
+      <ion-input
+        type="text"
+        placeholder="Surname"
+        label="Surname"
+        labelPlacement="stacked"
+      ></ion-input>
+      <ion-input
+        type="text"
+        placeholder="Address"
+        label="Address"
+        labelPlacement="stacked"
+      ></ion-input>
+      <ion-input
+        type="text"
+        placeholder="Address 2"
+        label="Address"
+        labelPlacement="stacked"
+      ></ion-input>
+      <ion-input
+        type="text"
+        placeholder="XX XXX XXX XX XX"
+        label="Phone"
+        labelPlacement="stacked"
+      ></ion-input>
+      <ion-item>
+        <ion-select
+          value="tr"
+          multiple="true"
+          placeholder="Country"
+          labelPlacement="stacked"
+          label="Country"
+        >
+          <ion-select-option value="tr">Turkey</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-select
+          value="state"
+          multiple="true"
+          placeholder="State"
+          labelPlacement="stacked"
+          label="State"
+        >
+          <ion-select-option value="state">State</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-select
+          value="city"
+          multiple="true"
+          placeholder="City"
+          labelPlacement="stacked"
+          label="City"
+        >
+          <ion-select-option value="city">City</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="full" [routerLink]="'/payment/payment-option'"> Payment </ion-button>
+</ion-content>
