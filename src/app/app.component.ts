@@ -28,10 +28,10 @@ export class AppComponent implements OnInit {
   }
   async ngOnInit() {
    this.productSrv.createSampleProducts();
-   const toast = await this.toastCtrl.create({
-      header: 'SULA' ,message: 'Only Have Men T-Shirts', position: 'top', duration: 2000
-    });
-    await toast.present();
+  //  const toast = await this.toastCtrl.create({
+  //     header: 'SULA' ,message: 'Only Have Men T-Shirts', position: 'top', duration: 2000
+  //   });
+  //   await toast.present();
   }
 
   navigateHome() {

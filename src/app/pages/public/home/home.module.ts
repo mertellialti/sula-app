@@ -9,6 +9,7 @@ import { MenuComponent } from '../../../components/menu/menu.component';
 import { MobileHeaderComponent } from '../../../components/mobile-header/mobile-header.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
 import { DesktopHeaderComponent } from 'src/app/components/desktop-header/desktop-header.component';
+import { GalleryHeroComponent } from 'src/app/components/gallery-hero/gallery-hero.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DesktopHeaderComponent } from 'src/app/components/desktop-header/deskto
     MenuComponent,
     MobileHeaderComponent,
     FooterComponent,
-    DesktopHeaderComponent
+    DesktopHeaderComponent,
+    GalleryHeroComponent
   ],
   declarations: [HomePage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

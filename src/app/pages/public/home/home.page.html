@@ -1,51 +1,10 @@
-
 <app-desktop-header></app-desktop-header>
-<ion-header
-  [translucent]="true"
-  style="align-items: center; justify-content: center"
->
-  <app-mobile-header></app-mobile-header>
-</ion-header>
+<app-mobile-header></app-mobile-header>
+
 <ion-content [fullscreen]="true" class="ion-padding" id="main-content">
   <ion-grid fixed>
     <ion-row>
-      <!-- <ion-col size="12" size-md="12" size-lg="12">
-          <div class="card-container">
-            <div class="card-background">
-              <img src="../../assets/imgs/10.jpeg" class="image-content" style="width: 100%;" />
-            </div>
-            <div class="card-content">
-              <h1 class="image-content">SULA</h1>
-            </div>
-          </div>
-        </ion-col> -->
-
-      <ion-col size="12" size-md="12" size-lg="12">
-        <div class="card-container">
-          <!-- <div class="card-background">
-              <img src="../../assets/imgs/2.jpeg" class="image-content" />
-            </div> -->
-          <swiper-container
-            [modules]="swiperModules"
-            [options]="swiperOptions"
-            [autoplay]="true"
-          >
-            <swiper-slide *ngFor="let image of slidingImgs">
-              <div class="product-image-container">
-                <img [src]="image" class="product-image" />
-              </div>
-            </swiper-slide>
-          </swiper-container>
-
-          <div class="card-content">
-            <h2 class="product-image">All New 2024</h2>
-            <ion-button expand="full" fill="outline" color="medium"
-              >Check New Session
-            </ion-button>
-          </div>
-        </div>
-        <swiper-pagination></swiper-pagination>
-      </ion-col>
+      <app-gallery-hero></app-gallery-hero>
     </ion-row>
     <ion-row>
       <ion-col size="12" size-md="6" size-lg="6">
@@ -60,9 +19,7 @@
               justo feugiat, imperdiet leo quis, egestas nibh. Donec ullamcorper
               velit quis justo viverra pulvinar.
             </p>
-            <ion-button expand="full" fill="clear" color="dark"
-              >Check</ion-button
-            >
+            <ion-button expand="full" fill="clear" color="dark">Check</ion-button>
           </div>
         </div>
       </ion-col>
@@ -80,25 +37,17 @@
               libero. Morbi tempor tortor vel justo rutrum, at eleifend nunc
               lacinia.
             </p>
-            <ion-button expand="full" fill="clear" color="dark"
-              >Check</ion-button
-            >
+            <ion-button expand="full" fill="clear" color="dark">Check</ion-button>
           </div>
         </div>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12" sizeMd="12" sizeLg="12">
-        <iframe
-          style="border-radius: 12px"
-          src="https://open.spotify.com/embed/artist/5L7Egy46wiejr82RAXIx8v?utm_source=generator&theme=0"
-          width="100%"
-          height="152"
-          frameborder="0"
-          allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
+        <iframe style="border-radius: 12px"
+          src="https://open.spotify.com/embed/artist/5L7Egy46wiejr82RAXIx8v?utm_source=generator&theme=0" width="100%"
+          height="152" frameborder="0" allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </ion-col>
       <ion-col size="12" sizeMd="12" sizeLg="4"></ion-col>
     </ion-row>

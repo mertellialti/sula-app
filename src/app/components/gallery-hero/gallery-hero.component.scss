@@ -1,0 +1,98 @@
+.fashion-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--ion-color-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  width: 100&;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  .card-badge {
+    top: 12px;
+    left: 12px;
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .fashion-swiper {
+    height: 320px; // Reduced from 480px
+    
+    .image-container {
+      .fashion-image {
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+      }
+
+      // .quick-view {
+      //   bottom: 12px;
+      //   right: 12px;
+      //   padding: 10px;
+      //   ion-icon {
+      //     font-size: 18px;
+      //   }
+      // }
+    }
+  }
+
+  .card-content {
+    padding: 16px;
+    
+    .brand-header {
+      margin-bottom: 12px;
+
+      .brand-logo {
+        // height: 28px;
+      }
+
+      .season-tag {
+        font-size: 11px;
+      }
+    }
+
+    .collection-title {
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    .collection-description {
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-section {
+      .cta-button {
+        --padding-start: 24px;
+        --padding-end: 24px;
+        font-size: 0.9rem;
+      }
+
+      .social-proof {
+        font-size: 0.8rem;
+        ion-icon {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    
+    .fashion-swiper {
+      height: 360px; // Reduced from 560px
+    }
+
+    .card-content {
+      // padding: 20px;
+      
+      .collection-title {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

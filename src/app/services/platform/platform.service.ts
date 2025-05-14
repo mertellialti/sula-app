@@ -12,7 +12,6 @@ export class PlatformService {
     private readonly platform: Platform
   ) { 
     if (this.platform.is('desktop')) {
-      // Desktop specific code
       this.currentPlatform = 'desktop';
     } else {
       this.currentPlatform = 'mobile';

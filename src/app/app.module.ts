@@ -11,7 +11,9 @@ import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, MenuComponent, BrowserModule],
+  imports: [BrowserModule,  IonicModule.forRoot({
+      mode: 'ios' // Set the default mode to iOS for all components
+    }), AppRoutingModule, HttpClientModule, MenuComponent, BrowserModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
